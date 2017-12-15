@@ -40,9 +40,11 @@
 #             items.append(item)
 #
 #         return items
+#coding:utf-8
+#-*-coding:utf-8-*-
 from scrapy.spiders import Spider
 import scrapy
-
+import os
 
 class StackOverflowSpider(Spider):
     name = 'morningstar'
@@ -54,9 +56,31 @@ class StackOverflowSpider(Spider):
             yield scrapy.Request(full_url, callback=self.parse_question)
 
     def parse_question(self, response):
-        yield {#html/body/form/div[6]/div/div[2]/ul[3]/li[2]/span
-            'title': response.xpath('//div[@id="qt_fund"]/span[@class="name"]').extract(),
-            'link': response.xpath('//div[@id="qt_manager"]/ul[1]/li[1]/a').extract(),
+        yield {
+            'title': response.xpath('//div[@id="qt_fund"]/span[@class="name"]/text()').extract(),
+            'link': response.url,
             # 'attri': response.xpath('//table[@id="ctl00_cphMain_gridResult"]/tr/td[3]/a/@target').extract(),
 
         }
+'''
+    def closed(self, reason):
+        from scrapy.mail import MailSender
+
+        mailer = MailSender(
+            smtphost="smtp.163.com",
+            mailfrom="zongff9095@163.com",
+            smtpuser="zongff9095@163.com",
+            smtppass="zff90111",
+            smtpport=25
+        )
+        f = open(os.getcwd() + r"\List.json")
+        line = f.readline().decode('unicode_escape')
+        textr = []
+        while line:
+            textr.append(line)
+            line = f.readline().decode('unicode_escape')
+        body = ' '.join(textr)
+
+        subject = u'scrapy emails'
+'''
+        # mailer.send(to=["1047670763@qq.com", "1047670763@qq.com"], subject=subject.encode("utf-8"), body=body.encode("utf-8"))
