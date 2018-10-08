@@ -55,6 +55,7 @@ class StackOverflowSpider(Spider):
             full_url = response.urljoin(href.extract())
             yield scrapy.Request(full_url, callback=self.parse_question)
 
+# 123
     def parse_question(self, response):
         yield {
             'title': response.xpath('//div[@id="qt_fund"]/span[@class="name"]/text()').extract(),
