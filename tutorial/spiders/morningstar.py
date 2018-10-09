@@ -1,3 +1,4 @@
+#coding:utf-8
 # from scrapy.spiders import Spider
 # from scrapy.selector import Selector
 # import scrapy
@@ -40,8 +41,7 @@
 #             items.append(item)
 #
 #         return items
-#coding:utf-8
-#-*-coding:utf-8-*-
+
 from scrapy.spiders import Spider
 import scrapy
 import os
@@ -55,12 +55,13 @@ class StackOverflowSpider(Spider):
             full_url = response.urljoin(href.extract())
             yield scrapy.Request(full_url, callback=self.parse_question)
 
+
 # 123
     def parse_question(self, response):
         yield {
             'title': response.xpath('//div[@id="qt_fund"]/span[@class="name"]/text()').extract(),
-            'link': response.url,
-            # 'attri': response.xpath('//table[@id="ctl00_cphMain_gridResult"]/tr/td[3]/a/@target').extract(),
+            'link': response.url
+            # 'desc': response.xpath('//div[@id="qt_base"]/ul/li/span[@class="p"]/text()').extract(),
 
         }
 '''
