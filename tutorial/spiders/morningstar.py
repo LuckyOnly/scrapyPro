@@ -60,8 +60,8 @@ class StackOverflowSpider(Spider):
     def parse_question(self, response):
         yield {
             'title': response.xpath('//div[@id="qt_fund"]/span[@class="name"]/text()').extract(),
-            'link': response.url
-            # 'desc': response.xpath('//div[@id="qt_base"]/ul/li/span[@class="p"]/text()').extract(),
+            'link': response.url,
+            'desc': response.xpath('//div[@id="qt_base"]/ul/li/span[@class="p"]/text()').extract()
 
         }
 '''
