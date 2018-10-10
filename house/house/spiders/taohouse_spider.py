@@ -20,7 +20,7 @@ class HoseSpider(Spider):
         for href in response.xpath('//div/div/div/div/div/div/h3/a/@href'):
             full_url = response.urljoin(href.extract())
             yield scrapy.Request(full_url, callback=self.parse_question)
-        # next_page = response.xpath('//div/div/div[@class="sm_page mt20 pageList"]/a/@href').extract()
+        #下一页
         next_page = response.xpath('//div/div/div[@class="sm_page mt20 pageList"]/a/text()').extract()
         next_url = response.xpath('//div/div/div[@class="sm_page mt20 pageList"]/a/@href').extract()
         i=0
@@ -32,19 +32,20 @@ class HoseSpider(Spider):
 
     def parse_question(self, response):
         price_name_1 = response.xpath('//div[@class="h22 over_hide f14"]/div/text()').extract()
-        for name in price_name_1:
-            if name == u'最新报价：':
-                yield {
-                'title': response.xpath('//div/div/div/div/h1/text()').extract(),
-                'link': response.url,
-                'price': response.xpath('//div/div/div/div/div/div/span/text()')[0].extract()
-
-                }
-                break
-            else:
-                yield {
-                'title': response.xpath('//div/div/div/div/h1/text()').extract(),
-                'link': response.url,
-                'price': response.xpath('//div/div/div/span/em/text()')[0].extract()
-                }
-                break
+        if price_name_1:
+            for name in price_name_1:
+                if name == u'最新报价：':
+                    yield {
+                    'title': response.xpath('//div/div/div/div/h1/text()').extract(),
+                    'link': response.url,
+                    'price': response.xpath('//div/div/div/div/div/div/span/text()')[0].extract(),
+                    'type':response.xpath(u'normalize-space(//div/div/div/div/div[contains(text(),"项目类型")]/text())')[0].extract()
+                    }
+                    break
+        else:
+            yield {
+            'title': response.xpath('//div/div/div/div/h1/text()').extract(),
+            'link': response.url,
+            'price': response.xpath('//div/div/div/span/em/text()')[0].extract(),
+            'type': response.xpath('normalize-space(//div/div/div/div/span[@class="pr20 w200 fl nowrap"]/text())')[0].extract()
+            }
