@@ -20,6 +20,14 @@ class HoseSpider(Spider):
         for href in response.xpath('//div/div/div/div/div/div/h3/a/@href'):
             full_url = response.urljoin(href.extract())
             yield scrapy.Request(full_url, callback=self.parse_question)
+        # next_page = response.xpath('//div/div/div[@class="sm_page mt20 pageList"]/a/@href').extract()
+        next_page = response.xpath('//div/div/div[@class="sm_page mt20 pageList"]/a/text()').extract()
+        next_url = response.xpath('//div/div/div[@class="sm_page mt20 pageList"]/a/@href').extract()
+        i=0
+        while i < len(next_page):
+            if next_page[i] ==u"下一页":
+                yield scrapy.Request(next_url[i],callback=self.parse)
+            i+=1
 
 
     def parse_question(self, response):
@@ -30,7 +38,6 @@ class HoseSpider(Spider):
                 'title': response.xpath('//div/div/div/div/h1/text()').extract(),
                 'link': response.url,
                 'price': response.xpath('//div/div/div/div/div/div/span/text()')[0].extract()
-                # 'price': response.xpath('//div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/span/text()')[0].extract()
 
                 }
                 break
