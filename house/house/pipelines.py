@@ -15,7 +15,7 @@ class HousePipeline(object):
         self.export.finish_exporting()
         self.file.close()
     def process_item(self, item, spider):
-        if item['price']:
+        if item['link']:
             self.export.export_item(item)
             self.file.write('\n')
         return item
