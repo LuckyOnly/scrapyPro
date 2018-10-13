@@ -14,4 +14,5 @@ class HouseItem(scrapy.Item):
     link = scrapy.Field()
     price = scrapy.Field()
     type=scrapy.Field()
+    status = scrapy.Field()
 

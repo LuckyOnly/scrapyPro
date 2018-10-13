@@ -1,16 +1,13 @@
-[{"link": "http://newhouse.nj.house365.com/shilinyuncheng/", "price": "25000元/㎡", "type": "住宅", "title": ["石林云城"]}
-,{"link": "http://newhouse.nj.house365.com/jianfaziyueguangchuang/", "price": "24000元/㎡", "type": "公寓", "title": ["建发紫悦广场"]}
-,{"link": "http://newhouse.nj.house365.com/lvdiyunshang/", "price": "23000元/㎡", "type": "公寓", "title": ["绿地云尚"]}
-,{"link": "http://newhouse.nj.house365.com/fulixiangguangli/", "price": "待定", "type": "项目类型：商业", "title": ["富力星光里"]}
-,{"link": "http://newhouse.nj.house365.com/zhongxingwulianyanfadalou/", "price": "待定", "type": "项目类型：写字楼", "title": ["中兴物联研发大楼"]}
-,{"link": "http://newhouse.nj.house365.com/yunshugongguan/", "price": "25000-32000元/㎡", "type": "公寓", "title": ["云树公馆"]}
-,{"link": "http://newhouse.nj.house365.com/shilindagongyuan/", "price": "24999.52", "type": "住宅", "title": ["石林大公园"]}
-,{"link": "http://newhouse.nj.house365.com/lvdizhichuang02/", "price": "20000元/㎡", "type": "项目类型：写字楼", "title": ["南京城际空间站（原绿地之窗）"]}
-,{"link": "http://newhouse.nj.house365.com/zhengdaximalaya/", "price": "21000 元/㎡", "type": "项目类型：写字楼", "title": ["证大喜玛拉雅"]}
-,{"link": "http://newhouse.nj.house365.com/zhengdaximalaya05/", "price": "20000元/㎡", "type": "公寓", "title": ["证大喜玛拉雅"]}
-,{"link": "http://newhouse.nj.house365.com/shimaochengpinguojiguangchang/", "price": "19000-22000元/㎡", "type": "项目类型：写字楼", "title": ["世茂城品国际广场"]}
-,{"link": "http://newhouse.nj.house365.com/wankexinghui/", "price": "18000-21000元/㎡", "type": "公寓", "title": ["万科星荟"]}
-,{"link": "http://newhouse.nj.house365.com/lvdizhichuang/", "price": "8.5万/㎡", "type": "项目类型：商业", "title": ["南京城际空间站（原绿地之窗）"]}
-,{"link": "http://newhouse.nj.house365.com/zhongnanjinyuannj04/", "price": "1.8-4万/㎡", "type": "项目类型：商业", "title": ["中南锦苑"]}
-,{"link": "http://newhouse.nj.house365.com/fulixiangguanglinj05/", "price": "19000元/㎡", "type": "公寓", "title": ["富力星光里"]}
+[{"status": "在售", "link": "http://newhouse.nj.house365.com/shilinyuncheng/", "price": "25000元/㎡", "type": "住宅", "title": ["石林云城"]}
+,{"status": "新盘", "link": "http://newhouse.nj.house365.com/qixiabanqiaoG10dikuai/", "price": "待定", "type": "住宅", "title": ["星叶欢乐城"]}
+,{"status": "在售", "link": "http://newhouse.nj.house365.com/shilindagongyuan/", "price": "25000元/㎡", "type": "住宅", "title": ["石林大公园"]}
+,{"status": "在售", "link": "http://newhouse.nj.house365.com/daishanbaozhangfang/", "price": "待定", "type": "住宅", "title": ["岱山保障房"]}
+,{"status": "新盘", "link": "http://newhouse.nj.house365.com/lvchengxishanqiaoG100dikuai/", "price": "待定", "type": "住宅", "title": ["绿城云栖玫瑰园"]}
+,{"status": "在售", "link": "http://newhouse.nj.house365.com/hongyangchunshangxijiang/", "price": "16500元/㎡", "type": "住宅", "title": ["弘阳春上西江"]}
+,{"status": "新盘", "link": "http://newhouse.nj.house365.com/zhonghaichengnangognguan/", "price": "待定", "type": "住宅", "title": ["中海城南公馆"]}
+,{"status": "在售", "link": "http://newhouse.nj.house365.com/languanggongyuanyihao/", "price": "23500元/㎡", "type": "住宅", "title": ["蓝光公园1号"]}
+,{"status": "新盘", "link": "http://newhouse.nj.house365.com/yuzhoujiahuixingdao01/", "price": "待定", "type": "住宅", "title": ["禹洲嘉荟星岛"]}
+,{"status": "在售", "link": "http://newhouse.nj.house365.com/wankejiuduhui/", "price": "33598-36069元/㎡", "type": "住宅", "title": ["万科九都荟"]}
+,{"status": "尾盘", "link": "http://newhouse.nj.house365.com/hechangwanjing/", "price": "17950元/㎡", "type": "住宅", "title": ["和昌湾景"]}
+,{"status": "在售", "link": "http://newhouse.nj.house365.com/yadongguanyue/", "price": "30000元/㎡", "type": "住宅", "title": ["亚东观樾"]}
 ]

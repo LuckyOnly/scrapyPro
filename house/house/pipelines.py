@@ -15,7 +15,8 @@ class HousePipeline(object):
         self.export.finish_exporting()
         self.file.close()
     def process_item(self, item, spider):
-        if item['title']:
-            self.export.export_item(item)
-            self.file.write('\n')
+        if item['title'] and item['type'] == u'住宅':
+            if item['status'] in [u'新盘',u'尾盘',u'在售']:
+                self.export.export_item(item)
+                self.file.write('\n')
         return item

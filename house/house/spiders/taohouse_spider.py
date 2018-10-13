@@ -39,6 +39,7 @@ class HoseSpider(Spider):
                     'title': response.xpath('//div/div/div/div/h1/text()').extract(),
                     'link': response.url,
                     'price': response.xpath('//div/div/div/div/div/div/span/text()')[0].extract(),
+                    'status':response.xpath('//div/div[1]/div[2]/div[1]/span[@class="org_4"]/text()')[0].extract(),
                     'type':response.xpath(u'normalize-space(//div/div/div/div/div[contains(text(),"项目类型")]/text())')[0].extract()
                     }
                     break
@@ -47,5 +48,6 @@ class HoseSpider(Spider):
             'title': response.xpath('//div/div/div/div/h1/text()').extract(),
             'link': response.url,
             'price': response.xpath('//div/div/div/span/em/text()')[0].extract(),
+            'status': response.xpath('//div/div[1]/div[2]/div[1]/span[@class="org_4"]/text()')[0].extract(),
             'type': response.xpath('normalize-space(//div/div/div/div/span[@class="pr20 w200 fl nowrap"]/text())')[0].extract()
             }
