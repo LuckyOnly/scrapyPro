@@ -14,8 +14,7 @@ import scrapy
 
 class HoseSpider(Spider):
     name = 'def'
-    # start_urls = ['http://newhouse.nj.house365.com/house/dist-10/']
-    start_urls = ['http://newhouse.nj.house365.com/house/dist-11/']
+    start_urls = ['http://newhouse.nj.house365.com/house/dist-10/','http://newhouse.nj.house365.com/house/dist-11/']
 
     def parse(self, response):
         for href in response.xpath('//div/div/div/div/div/div/h3/a/@href'):
