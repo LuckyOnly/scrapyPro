@@ -7,7 +7,7 @@ import os
 def sender():
     smtpHost = 'smtp.qq.com'
     sender = '1047670763@qq.com'
-    password = "zmqlfmkgwgnfbdjc"
+    password = "zmqlfm"
     receiver = '525970280@qq.com'
     # receiver = '1047670763@qq.com'
 
