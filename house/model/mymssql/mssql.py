@@ -39,13 +39,14 @@ class MsSql:
         cur.execute('select * from info')
         for data in cur.fetchall():
             print data
-
+        self.ms.close()
     def int_data(self):
         item = {'status': u'\u5728\u552e', 'type': u'\u4f4f\u5b85', 'price': u'25000\u5143/\u33a1', 'link': 'http://newhouse.nj.house365.com/shilinyuncheng/', 'title': [u'\u77f3\u6797\u4e91\u57ce']}
         print str(item['title'][0])
         ms.conn.execute("insert into info(title,price,type,status,link) values (%s,%s,%s,%s,%s)",(str(item['title'][0]), item['price'], item['type'], item['status'], item['link']))
 
         self.ms.commit()
+        self.ms.close()
 if __name__=='__main__':
     ms = MsSql()
     # ms.int_data()

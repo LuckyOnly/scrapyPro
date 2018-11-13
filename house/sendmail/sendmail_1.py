@@ -5,11 +5,12 @@ from email.mime.text import MIMEText
 import os
 
 def sender():
+    print '发送邮件'
     smtpHost = 'smtp.qq.com'
     sender = '1047670763@qq.com'
     password = "zmqlfm"
-    receiver = '525970280@qq.com'
-    # receiver = '1047670763@qq.com'
+    # receiver = '525970280@qq.com'
+    receiver = '1047670763@qq.com'
 
     path_1 = os.path.dirname(os.getcwd())
     f = open(path_1+r"\house\model\mymssql\statistic_data.json")

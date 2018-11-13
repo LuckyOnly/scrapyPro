@@ -13,6 +13,7 @@ from scrapy.spiders import Spider
 import scrapy
 
 class HoseSpider(Spider):
+    print '爬取数据'
     name = 'def'
     start_urls = ['http://newhouse.nj.house365.com/house/dist-10/','http://newhouse.nj.house365.com/house/dist-11/']
 
