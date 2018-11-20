@@ -3,13 +3,14 @@
 from scrapy.cmdline import execute
 import os
 import sys
-from house.model.mymssql.deletedb import del_data
-
-
 # 添加当前项目的绝对地址
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
+from house.model.mymssql.deletedb import del_data
+
+
+
 #清除数据库数据
 
 del_data()
