@@ -41,15 +41,16 @@ class MsSql:
             print data
         self.ms.close()
     def int_data(self):
-        item = {'status': u'\u5728\u552e', 'type': u'\u4f4f\u5b85', 'price': u'25000\u5143/\u33a1', 'link': 'http://newhouse.nj.house365.com/shilinyuncheng/', 'title': [u'\u77f3\u6797\u4e91\u57ce']}
-        print str(item['title'][0])
-        ms.conn.execute("insert into info(title,price,type,status,link) values (%s,%s,%s,%s,%s)",(str(item['title'][0]), item['price'], item['type'], item['status'], item['link']))
+        item = {'cdate': [u'2018-10-17'], 'link': 'http://www.njhouse.com.cn/2016/spf/detail.php?prjid=108689', 'name': [u'\u6e56\u5149\u5c71\u8272\u8857\u533a'], 'address': [u'\u6c5f\u5b81\u533a\u8c37\u91cc\u8857\u9053\u60a6\u6e56\u8def16\u53f7'], 'price': [u'22671\u5143/m'], 'manager': [u'\u5e7f\u4e1c\u78a7\u6842\u56ed\u7269\u4e1a\u670d\u52a1\u80a1\u4efd\u6709\u9650\u516c\u53f8'], 'unsale': [u' 60\u5957 '], 'engineer': [u'\n      \u5357\u4eac\u91d1\u68a6\u90fd\u623f\u5730\u4ea7\u5f00\u53d1\u6709\u9650\u8d23\u4efb\u516c\u53f8    ']}
+        print str(item['name'][0])
+
+        ms.conn.execute("insert into department(name,cdate,price,unsale,address,engineer,manager,link) values (%s,%s,%s,%s,%s,%s,%s,%s)",(item['name'][0],item['cdate'][0],item['price'][0],item['unsale'][0],item['address'][0],item['engineer'][0].strip(),item['manager'][0],item['link']))
 
         self.ms.commit()
         self.ms.close()
 if __name__=='__main__':
     ms = MsSql()
-    # ms.int_data()
+    ms.int_data()
     # ms.query()
     # print ur'\u77f3\u6797\u4e91\u57ce'
 

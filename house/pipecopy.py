@@ -10,7 +10,7 @@ from logging import log
 
 class HousePipeline(object):
     def __init__(self):
-        self.file = open('house1.json','wb')
+        self.file = open('house.json','wb')
         self.export = JsonItemExporter(self.file,encoding ='utf-8')
         self.export.start_exporting()
     def close_spider(self,spider):
@@ -18,14 +18,14 @@ class HousePipeline(object):
         self.file.close()
     def process_item(self, item, spider):
         ms_sql = MsSql()
-        # if item['name']:
-        self.export.export_item(item)
-        self.file.write('\n')
-        if item['unsale'][0]=="0套":
-            try:
-                ms_sql.conn.execute(
-                     "insert into department(name,cdate,price,unsale,address,engineer,manager,link) values (%s,%s,%s,%s,%s,%s,%s,%s)",(item['name'][0],item['cdate'][0],item['price'][0],item['unsale'][0],item['address'][0],item['engineer'][0].strip(),item['manager'][0],item['link']))
-                ms_sql.ms.commit()
-            except Exception as error:
-                log(1,error)
+        if item['title'] and item['type'] == u'住宅':
+            if item['status'] in [u'新盘',u'尾盘',u'在售']:
+                self.export.export_item(item)
+                self.file.write('\n')
+                try:
+                    ms_sql.conn.execute(
+                         "insert into info(title,price,type,status,link) values (%s,%s,%s,%s,%s)",(item['title'][0],item['price'],item['type'],item['status'],item['link']))
+                    ms_sql.ms.commit()
+                except Exception as error:
+                    log(1,error)
         return item

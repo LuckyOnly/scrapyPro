@@ -8,8 +8,8 @@ def del_data():
     ms_sql = MsSql()
     cur = ms_sql.conn
     try:
-        cur.execute(
-            "truncate table info")
+        # cur.execute("truncate table info")
+        cur.execute("truncate table department")
         ms_sql.ms.close()
     except Exception as error:
         log('删除失败',error)
