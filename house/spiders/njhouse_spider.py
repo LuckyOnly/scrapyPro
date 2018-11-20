@@ -18,7 +18,7 @@ count = 2
 class HoseSpider(Spider):
     # print '爬取数据'
     name = 'nj'
-    start_urls = ['http://www.njhouse.com.cn/2016/spf/list.php?dist=%BD%AD%C4%FE&use=1&saledate=5&pgno=1','http://www.njhouse.com.cn/2016/spf/list.php?dist=%D3%EA%BB%A8%CC%A8&use=0&saledate=5&pgno=1']
+    start_urls = ['http://www.njhouse.com.cn/2016/spf/list.php?dist=%BD%AD%C4%FE&use=1&saledate=5&pgno=1','http://www.njhouse.com.cn/2016/spf/list.php?dist=%D3%EA%BB%A8%CC%A8&use=1&saledate=5&pgno=1']
     def parse(self, response):
         # 选择所有的链接
         global count
