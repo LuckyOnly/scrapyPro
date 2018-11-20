@@ -18,7 +18,7 @@ count = 2
 class HoseSpider(Spider):
     # print '爬取数据'
     name = 'nj'
-    start_urls = ['http://www.njhouse.com.cn/2016/spf/list.php?dist=%BD%AD%C4%FE&use=1&saledate=5&pgno=1']
+    start_urls = ['http://www.njhouse.com.cn/2016/spf/list.php?dist=%BD%AD%C4%FE&use=1&saledate=5&pgno=1','http://www.njhouse.com.cn/2016/spf/list.php?dist=%D3%EA%BB%A8%CC%A8&use=0&saledate=5&pgno=1']
     def parse(self, response):
         # 选择所有的链接
         global count
@@ -30,7 +30,6 @@ class HoseSpider(Spider):
         next_url = response.xpath('//div[@class="navs_block clearfix"]/a/@href').extract()
         if next_page[0] ==u"下一页" and count<len(next_url)-1:
             url = "http://www.njhouse.com.cn/2016/spf/list.php?dist=%BD%AD%C4%FE&use=1&saledate=5&pgno="+str(count)
-            print url,count
             yield scrapy.Request(url,callback=self.parse)
             count = count + 1
 

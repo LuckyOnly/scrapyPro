@@ -2,7 +2,12 @@
 
 from mssql import MsSql
 from logging import log
-import re
+import os
+import sys
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
+
 def gener():
     print '写入数据库'
     ms_sql = MsSql()
@@ -11,7 +16,7 @@ def gener():
     cur.execute('SELECT * from department  ORDER BY substring_index(price,"元",1)+0 asc')
     ms_sql.ms.close()
     try:
-        with open('statistic_data1.json','w') as f:
+        with open(rootPath+r'\mymssql\statistic_data1.json','w+') as f:
             for data in cur.fetchall():
                 for content in data:
                     f.write(str(content)+"  ")
