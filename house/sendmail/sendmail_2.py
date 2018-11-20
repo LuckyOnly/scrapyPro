@@ -3,18 +3,22 @@
 import smtplib
 from email.mime.text import MIMEText
 import os
+import sys
 from email.header import Header
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
+print rootPath
 
 def sender():
     print '发送邮件'
     smtpHost = 'smtp.qq.com'
     sender = '1047670763@qq.com'
-    password = "zmqlfmk"
+    password = "zmqlfm"
     # receiver = '525970280@qq.com'
     receiver = ['1047670763@qq.com','525970280@qq.com']
 
-    path_1 = os.path.dirname(os.getcwd())
-    f = open(path_1+r"\model\mymssql\statistic_data1.json")
+    f = open(rootPath+r"\model\mymssql\statistic_data1.json")
     line = f.readline()
     textr = []
     while line:

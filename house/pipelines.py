@@ -21,7 +21,8 @@ class HousePipeline(object):
         # if item['name']:
         self.export.export_item(item)
         self.file.write('\n')
-        if item['unsale'][0]=="0套":
+        if "0套" not in item['unsale'][0]:
+            print item['unsale'][0]
             try:
                 ms_sql.conn.execute(
                      "insert into department(name,cdate,price,unsale,address,engineer,manager,link) values (%s,%s,%s,%s,%s,%s,%s,%s)",(item['name'][0],item['cdate'][0],item['price'][0],item['unsale'][0],item['address'][0],item['engineer'][0].strip(),item['manager'][0],item['link']))
