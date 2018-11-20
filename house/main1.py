@@ -3,10 +3,8 @@
 from scrapy.cmdline import execute
 import os
 import sys
-
-from house.model.mymssql.generate_data import gener
 from house.model.mymssql.deletedb import del_data
-from house.sendmail.sendmail_1 import sender
+
 
 # 添加当前项目的绝对地址
 curPath = os.path.abspath(os.path.dirname(__file__))
