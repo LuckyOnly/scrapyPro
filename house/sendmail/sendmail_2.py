@@ -53,7 +53,7 @@ def sender():
     sender = '1047670763@qq.com'
     password = "zmqlfm"
     # receiver = '525970280@qq.com'
-    receiver = ['1047670763@qq.com']
+    receiver = ['1047670763@qq.com','525970280@qq.com']
 
 
 
