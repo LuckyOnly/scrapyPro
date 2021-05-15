@@ -11,18 +11,30 @@ class CarSpider(scrapy.Spider):
     start_urls = ['https://www.dongchedi.com/sales']
 
     def parse(self, response, **kwargs):
+        # 获取href
+        hrefs=response.xpath('.//div[@id="__next"]/main/div/div/div/a/@href')
+        # print(hrefs)
+        print(123)
+        for href in hrefs:
+            print(href.extract())
+            full_url = 'https://www.dongchedi.com'+str(href.extract())
+            yield scrapy.Request(full_url, callback=self.parse_question)
 
-        filename = response.url.split("/")[-1] + '.txt'
-        with open(filename, 'wb+') as f:
-            i = 1
-            while i < 3:
-                name = response.xpath(
-                    '/html/body/div[2]/main/div/div[1]/div[2]/a[1]/div/div[3]/p[' + str(i) + ']/text()').extract()
-                i += 1
-                print(name[0])
-                try:
-                    f.write(name[0].encode('utf-8'))
-                    f.write(','.encode('utf-8'))
-                except ValueError:
-                    f.close()
 
+    def parse_question(self):
+        pass
+
+        # filename = response.url.split("/")[-1] + '.txt'
+        # with open(filename, 'wb+') as f:
+        #     i = 1
+        #     while i < 3:
+        #         name = response.xpath(
+        #             '/html/body/div[2]/main/div/div[1]/div[2]/a[1]/div/div[3]/p[' + str(i) + ']/text()').extract()
+        #         i += 1
+        #         print(name[0])
+        #         try:
+        #             f.write(name[0].encode('utf-8'))
+        #             f.write(','.encode('utf-8'))
+        #         except ValueError:
+        #             f.close()
+        #
