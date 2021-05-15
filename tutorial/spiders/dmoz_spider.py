@@ -20,7 +20,7 @@ class DmozSpider(scrapy.Spider):
             item['title']=sel.xpath('a/text()').extract()
             item['link']=sel.xpath('a/@href').extract()
             item['desc']=sel.xpath('text()').extract()
-            print item
+            print(item)
 
 
 
