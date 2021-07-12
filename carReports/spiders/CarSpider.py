@@ -5,16 +5,21 @@ import scrapy
 # 实例化浏览器可以通过process_response中的spider获取
 # 实例化浏览器可以写在这里
 class CarSpider(scrapy.Spider):
+    # name定义spider名字的字符串(string)
     name = "car"
+
     # 这是一个可选的属性，包含了爬虫允许爬取的域名列表。当 OffsiteMiddleware 设置启用时，域名不在列表中的 URL 不会被跟进。
     # allowed_domain = ['dongchedi.com']
+
+    # URL列表。
     start_urls = ['https://www.dongchedi.com/sales']
+
 
     def parse(self, response, **kwargs):
         # 获取href
         hrefs=response.xpath('.//div[@id="__next"]/main/div/div/div/a/@href')
         # print(hrefs)
-        print(123)
+        print(hrefs)
         for href in hrefs:
             print(href.extract())
             full_url = 'https://www.dongchedi.com'+str(href.extract())

@@ -14,4 +14,4 @@ sys.path.append(rootPath)
 
 
 # 执行 scrapy 内置的函数方法execute，使用 crawl 爬取并调试，最后一个参数jobbole 是我的爬虫文件名
-execute(['scrapy', 'crawl', 'car'])
+execute(['scrapy', 'crawl', 'car2'])
